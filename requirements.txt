@@ -1,0 +1,5 @@
+django>=1.11.28
+selenium==3.141.0
+py==1.5.3
+pytest==3.6.2
+six==1.11.0
