@@ -17,6 +17,7 @@ $ pip install virtualenv
 $ virtualenv venv -p python3
 $ venv\Scripts\activate
 $ pip install -r requirements.txt
+$ cp contrib/env-sample .env
 ```
 
 Deactivating the virtual environment
