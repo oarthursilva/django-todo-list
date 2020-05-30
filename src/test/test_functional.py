@@ -1,3 +1,6 @@
+# test_functional.py
+
+# functional test test the application from the outside
 import unittest
 
 from selenium import webdriver

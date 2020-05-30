@@ -2,7 +2,7 @@
 
 Starting the virtual environment
 
-```
+```bash
 $ pip install virtualenv
 $ virtualenv venv -p python3
 $ venv\Scripts\activate
@@ -11,7 +11,7 @@ $ pip install -r requirements.txt
 
 Deactivating the virtual environment
 
-```text
+```bash
 $ venv\Scripts\deactivate
 ```
 
@@ -31,15 +31,15 @@ Download and unpack gecko driver from https://github.com/mozilla/geckodriver/rel
 
 Open the terminal and you'll be able to run
 
-```text
+```bash
 $ geckodriver --version
 ```
 
-- Create the main container
+## Create Project
 
 Statement below create the project folder which intent to store project global configuration.
 
-```
+```bash
 $ django-admin.py startproject ${project name} .
 ```
 
@@ -47,17 +47,16 @@ $ django-admin.py startproject ${project name} .
 
 Perform the statement below to run a local development server
 
-```
+```bash
 $ python manage.py runserver
 ```
 
 The output should be something similar than below, and Django should now get up and running.
 
-```
+```bash
 System check identified no issues (0 silenced).
 May 28, 2020 - 22:51:22
 Django version 1.11.17, using settings 'superlists.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
-
 ```
