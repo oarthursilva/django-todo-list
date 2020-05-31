@@ -1,5 +1,4 @@
 # unit test test the application from the inside
-from django.http import HttpRequest
 from django.test import TestCase
 from django.urls import resolve
 
@@ -13,10 +12,10 @@ class MainViewTest(TestCase):
         self.assertEquals(found.func, main_view)
 
     def test_should_return_valid_html_when_main_view_is_requested(self):
-        request = HttpRequest()
-        response = main_view(request)
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'main.html')
 
-        html = response.content.decode('utf-8')
-        self.assertTrue(html.startswith('<html>'))
-        self.assertIn('<title>To-Do lists</title>', html)
-        self.assertTrue(html.endswith('</html>'))
+    def test_should_save_new_item_when_post_is_triggered(self):
+        response = self.client.post('/', data={'item_text': 'A new list item'})
+        self.assertIn('A new list item', response.content.decode())
+        self.assertTemplateUsed(response, 'main.html')

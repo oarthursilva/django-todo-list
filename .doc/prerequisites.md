@@ -52,6 +52,10 @@ even reuse apps from your own repository.
 python manage.py startapp lists
 ```
 
+#### Adjust THE `settings.py` in `super`
+
+In the settings.py of your `super_project` dir, add the newly app in `INSTALLED_APPS` 
+
 ## Run Server
 
 Perform the statement below to run a local development server
