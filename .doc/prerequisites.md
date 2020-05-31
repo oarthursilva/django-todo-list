@@ -43,7 +43,16 @@ Statement below create the project folder which intent to store project global c
 $ django-admin.py startproject ${project name} .
 ```
 
-### Run Server
+## Create Apps
+
+A feasible approach is to structure the project based on apps, then you could simply mix it up with third-party apps or
+even reuse apps from your own repository. 
+
+```bash
+python manage.py startapp lists
+```
+
+## Run Server
 
 Perform the statement below to run a local development server
 
@@ -59,4 +68,29 @@ May 28, 2020 - 22:51:22
 Django version 1.11.17, using settings 'superlists.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
+```
+
+## Functional Test
+
+It ensures that end products, modules & components are working exactly as specified
+
+```bash
+python test/test_functional.py
+```
+
+## Unit Test Runner
+
+The automated test runner runs every unit test contained in the project structure, and provides a quick feedback among
+the features tested along the project.
+
+```bash
+python manage.py test
+```
+
+Write a dummy test in `lists/views`, and execute the test runners. An assert fail message is displayed indicating the 
+test ran successfully.
+
+```python
+def test_should_return_an_error_when_math_failed(self):
+    self.assertEquals(1 + 1, 3)
 ```

@@ -9,22 +9,28 @@ Before start, make sure you've done the configuration set listed on section pre 
   * [Chrome `chromedriver` Driver](.doc/prerequisites.md#chromedriver-chrome)
   * [Firefox `geckodriver` Driver](.doc/prerequisites.md#geckodriver-firefox)
 * [Create Project](.doc/prerequisites.md#create-project)
+* [Create Apps](.doc/prerequisites.md#create-apps)
 * [Run Server](.doc/prerequisites.md#run-server)
+* [Unit Test Runner](.doc/prerequisites.md#unit-test-runner)
 
-## Creating apps
+## Development
+* [URL Mapping](#url-mapping)
 
-A feasible approach is to structure the project based on apps, then you could simply mix it up with third-party apps or
-even reuse apps from your own repository. 
+---
 
-```bash
-python manage.py startapp lists
-```
+### URL Mapping
 
-## Test Runner
+Django uses a file called `urls.py` to map URLs to Views functions. The main `urls.py` is located at super project dir
 
-The automated test runner runs every unit test contained in the project structure, and provides a quick feedback among
-the features tested along the project.
+At the example below, the url path `/` is mapped for view function `main_view`.
 
-```bash
-python manage.py test
+```python
+from django.contrib import admin
+from django.urls import path
+from lists.views import main_view
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', main_view, name='main-view')
+]
 ```

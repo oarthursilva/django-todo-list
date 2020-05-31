@@ -1,4 +1,6 @@
-from django.shortcuts import render
-
 # Create your views here.
-main_page = None
+from django.http import HttpResponse
+
+
+def main_view(request):
+    return HttpResponse('<html><title>To-Do lists</title></html>')
