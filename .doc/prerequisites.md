@@ -7,6 +7,7 @@ $ pip install virtualenv
 $ virtualenv venv -p python3
 $ venv\Scripts\activate
 $ pip install -r requirements.txt
+$ cp contrib/env-sample .env
 ```
 
 Deactivating the virtual environment
@@ -49,7 +50,7 @@ A feasible approach is to structure the project based on apps, then you could si
 even reuse apps from your own repository. 
 
 ```bash
-python manage.py startapp lists
+$ python manage.py startapp lists
 ```
 
 #### Adjust THE `settings.py` in `super`
@@ -79,7 +80,7 @@ Quit the server with CTRL-BREAK.
 It ensures that end products, modules & components are working exactly as specified
 
 ```bash
-python test/test_functional.py
+$ python test/test_functional.py
 ```
 
 ## Unit Test Runner
@@ -88,7 +89,7 @@ The automated test runner runs every unit test contained in the project structur
 the features tested along the project.
 
 ```bash
-python manage.py test
+$ python manage.py test
 ```
 
 Write a dummy test in `lists/views`, and execute the test runners. An assert fail message is displayed indicating the 
