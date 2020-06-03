@@ -83,10 +83,18 @@ It ensures that end products, modules & components are working exactly as specif
 $ python test/test_functional.py
 ```
 
+#### Test Database with `LiveServerTestCase`
+
+It will automatically create a test database, and start up a development server for the functional tests to run against
+
+```bash
+$ python manage.py test functional_tests
+```
+
 ## Unit Test Runner
 
 The automated test runner runs every unit test contained in the project structure, and provides a quick feedback among
-the features tested along the project.
+the features tested along the project. Make the functional test class inherit `LiveServerTestCase`.
 
 ```bash
 $ python manage.py test

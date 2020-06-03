@@ -14,6 +14,8 @@ Before start, make sure you've done the configuration set listed on section pre 
 * [Create Apps](.doc/prerequisites.md#create-apps)
   * [Adjust `settings.py` in `super`](#.doc/prerequisites.md#adjust-settingspy-in-super)
 * [Run Server](.doc/prerequisites.md#run-server)
+* [Functional Test](.doc/prerequisites.md#functional-test)
+  * [Test Database with `LiveServerTestCase`](.doc/prerequisites.md#test-database-with-liveservertestcase)
 * [Unit Test Runner](.doc/prerequisites.md#unit-test-runner)
 
 ## Development
