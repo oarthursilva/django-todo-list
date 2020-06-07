@@ -41,16 +41,16 @@ class NewVisitorTest(LiveServerTestCase):
         self.browser.get(self.live_server_url)
 
         # She notices the page title and header mention to-do lists
-        self.assertIn('To-Do', self.browser.title)
+        self.assertIn('Todo', self.browser.title)
 
         header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('To-Do', header_text)
+        self.assertIn('Todo', header_text)
 
         # She is invited to enter a to-do item straight away
         inputbox = self.browser.find_element_by_id('id_item_text')
         self.assertEquals(
             inputbox.get_attribute('placeholder'),
-            'Enter a to-do item'
+            'Enter an item...'
         )
 
         # She types "Buy peacock feathers" into a text box (Edith's hobby
