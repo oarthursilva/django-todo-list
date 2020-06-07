@@ -7,7 +7,7 @@ class MainViewTest(TestCase):
 
     # def test_should_resolve_root_url_when_main_view_is_requested(self):
     #     found = resolve("/")
-    #     self.assertEquals(found.func, main_view)
+    #     self.assertEquals(found.func, main)
 
     def test_should_return_valid_html_when_main_view_is_requested(self):
         response = self.client.get('/')

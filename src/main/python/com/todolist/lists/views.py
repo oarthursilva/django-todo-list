@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from lists.models import Item
 
 
-def main_view(request):
+def main(request):
     if request.method == 'POST':
         Item.objects.create(text=request.POST['item_text'])
         return redirect('/')
