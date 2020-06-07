@@ -31,16 +31,16 @@ Before start, make sure you've done the configuration set listed on section pre 
 
 Django uses a file called `urls.py` to map URLs to Views functions. The main `urls.py` is located at super project dir
 
-At the example below, the url path `/` is mapped for view function `main_view`.
+At the example below, the url path `/` is mapped for view function `main`.
 
 ```python
 from django.contrib import admin
 from django.urls import path
-from lists.views import main_view
+from lists.views import main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main_view, name='main-view')
+    path('', main, name='main-view')
 ]
 ```
 
