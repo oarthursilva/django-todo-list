@@ -10,7 +10,9 @@
           rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-light">
+
+<!-- header -->
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#">TodoApp</a>
@@ -28,15 +30,22 @@
     </nav>
 </header>
 
+<!-- main section -->
 <main role="main" class="container">
     <h1 class="mt-5">Your Todo list</h1>
     <p class="lead">Start organizing your personal tasks now</p>
 
-    <div class="my-3 p-3 bg-white rounded">
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+
         <form method="POST">
-            <input name="item_text" id="id_item_text" placeholder="Enter an item..."/>
-            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_item_text">Create an item to increase your todo list</label>
+                <input name="item_text" id="id_item_text" placeholder="Enter an item..." class="form-control"/>
+                {% csrf_token %}
+                <small id="emailHelp" class="form-text text-muted">Anything that you might forget</small>
+            </div>
         </form>
+
     </div>
 
     <div class="my-3 p-3 bg-white rounded shadow-sm">
@@ -50,6 +59,7 @@
     </div>
 </main>
 
+<!-- footer -->
 <footer class="footer"></footer>
 
 </body>
