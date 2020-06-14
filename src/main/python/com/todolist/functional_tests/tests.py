@@ -41,10 +41,14 @@ class NewVisitorTest(LiveServerTestCase):
         self.browser.get(self.live_server_url)
 
         # She notices the page title and header mention to-do lists
-        self.assertIn('Todo', self.browser.title)
+        self.assertIn('Personal todo list', self.browser.title)
 
         header_text = self.browser.find_element_by_tag_name('h1').text
         self.assertIn('Todo', header_text)
+
+        # She notices there is not tasks assign to her as soon as she
+        # arrives at the page
+        self.assert_row_text_in_table("No tasks assigned to you. Enjoy your day!")
 
         # She is invited to enter a to-do item straight away
         inputbox = self.browser.find_element_by_id('id_item_text')
@@ -60,6 +64,7 @@ class NewVisitorTest(LiveServerTestCase):
         # When she hits enter, the page updates, and now the page lists
         # "1: Buy peacock feathers" as an item in a to-do list
         inputbox.send_keys(Keys.ENTER)
+        self.browser.refresh()
         self.assert_row_text_in_table("1: Buy peacock feathers")
 
         # There is still a text box inviting her to add another item. She
@@ -67,10 +72,9 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox = self.browser.find_element_by_id('id_item_text')
         inputbox.send_keys('Use peacock feathers to make a fly')
         inputbox.send_keys(Keys.ENTER)
+        self.browser.refresh()
 
         # The page updates again, and now shows both items on her list
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
         self.assert_row_text_in_table("1: Buy peacock feathers")
         self.assert_row_text_in_table("2: Use peacock feathers to make a fly")
 
