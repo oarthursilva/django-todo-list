@@ -53,9 +53,52 @@ even reuse apps from your own repository.
 $ python manage.py startapp lists
 ```
 
-#### Adjust THE `settings.py` in `super`
+#### Adjust THE `settings.py` in `config`
 
-In the settings.py of your `super_project` dir, add the newly app in `INSTALLED_APPS` 
+In the settings.py of your `config_project` dir, add the newly app in `INSTALLED_APPS` 
+
+#### Using Postgres as default database
+
+- see `docker-compose.yml` to manage `postgres` before proceed.
+
+Point the default `database` to postgres in `config/settings.py` file
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'pguser',
+        'PASSWORD': 'pguser',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
+```
+
+Run `manage.py migrate` to migrate, and postgres is now configured and accessible.
+
+#### Providing initial data
+
+Database data for fixture or fixtures. It pre populates the database with hardcoded data
+
+- entire project
+
+```bash
+# export
+manage.py dumpdata > fixture/initial.json
+# import
+manage.py loaddata fixture/initial.json
+```
+
+- app-specific
+
+```bash
+# export
+manage.py dumpdata lists > fixture/lists-initial-data.json
+# import
+manage.py loaddata fixture/lists-initial-data.json
+```
 
 ## Run Server
 
@@ -70,7 +113,7 @@ The output should be something similar than below, and Django should now get up 
 ```bash
 System check identified no issues (0 silenced).
 May 28, 2020 - 22:51:22
-Django version 1.11.17, using settings 'superlists.settings'
+Django version 1.11.17, using settings 'config.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
 ```

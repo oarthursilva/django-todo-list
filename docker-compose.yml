@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    container_name: django-app
+    hostname: app
+    command: python src/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/home/django/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+  db:
+    build: db/postgres
+    container_name: django-db
+    hostname: db
+    tty: true
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=pguser
+      - POSTGRES_PASSWORD=pguser
+      - POSTGRES_DB=postgres
+    volumes:
+      - 902bfc3bf60511a5acce4090599d0f87b8d9c8e4:/var/lib/postgres/data
+    restart: always
+
+  pgadmin:
+    build: db/pgadmin
+    container_name: django-pgadmin
+    tty: true
+    ports:
+      - 9000:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=pgadmin@user.com
+      - PGADMIN_DEFAULT_PASSWORD=pgadmin
+
+volumes:
+  902bfc3bf60511a5acce4090599d0f87b8d9c8e4:
+    external:
+      true

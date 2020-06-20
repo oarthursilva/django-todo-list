@@ -12,7 +12,9 @@ Before start, make sure you've done the configuration set listed on section pre 
   * [Firefox `geckodriver` Driver](.doc/prerequisites.md#geckodriver-firefox)
 * [Create Project](.doc/prerequisites.md#create-project)
 * [Create Apps](.doc/prerequisites.md#create-apps)
-  * [Adjust `settings.py` in `super`](#.doc/prerequisites.md#adjust-settingspy-in-super)
+  * [Adjust `settings.py` in `config`](.doc/prerequisites.md#adjust-the-settingspy-in-config)
+  * [Using Postgres as default database](.doc/prerequisites.md#using-postgres-as-default-database)
+  * [Providing initial data](.doc/prerequisites.md#providing-initial-data)
 * [Run Server](.doc/prerequisites.md#run-server)
 * [Functional Test](.doc/prerequisites.md#functional-test)
   * [Test Database with `LiveServerTestCase`](.doc/prerequisites.md#test-database-with-liveservertestcase)
@@ -29,7 +31,7 @@ Before start, make sure you've done the configuration set listed on section pre 
 
 ### URL Mapping
 
-Django uses a file called `urls.py` to map URLs to Views functions. The main `urls.py` is located at super project dir
+Django uses a file called `urls.py` to map URLs to Views functions. The main `urls.py` is located at `confg` project dir
 
 At the example below, the url path `/` is mapped for view function `main`.
 
